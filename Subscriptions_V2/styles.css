@@ -1,0 +1,822 @@
+/* ================== Reset & Base ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body.light {
+  color: #1f1818;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.dark {
+  background: #000000;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}  
+main {
+  flex: 1;
+  padding: 100px 20px 40px; /* prevent navbar overlap */
+  max-width: 1200px;
+  margin: auto;
+}
+/* ================== Navbar ================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #8b2f2f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.navbar nav a,
+.navbar nav button {
+  border: none;
+  margin-left: 15px;
+  margin-top: 5px;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.navbar nav a:hover,
+.navbar nav button:hover {
+  color: #ffd700;
+}
+
+#themeToggle {
+  cursor: pointer;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #ffd700;
+  color: #000;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#themeToggle:hover {
+  background: #ffcc00;
+}
+
+/* ================== Hero Section ================== */
+.hero {
+  height: 100vh;
+  background: #decfcf;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 100px 20px 40px;
+  text-align: center;
+  gap: 20px;
+}
+
+body.dark .hero {
+  background: #000000;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+.hero-content p {
+  max-width: 600px;   /* limit paragraph width */
+  line-height: 1.6;
+  margin: 0;          /* spacing controlled by gap */
+}
+
+.hero-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0;
+}
+
+.hero-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0;
+} 
+
+.hero-content a.btn-login {
+  margin-top: 10px;   /* optional extra spacing */
+}
+
+/* ================== Tables ================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  display: block;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  color: #000;
+  background: #fff;
+}
+
+body.dark table,
+body.dark th,
+body.dark td {
+  border: 1px solid #444;
+  background: #111;
+  color: #f5f5f5;
+}
+
+/* ================== Modal ================== */
+/* ===== Modal Overlay (centered) ===== */
+#subscriptionModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;              /* FLEX is required */
+  justify-content: center;    /* Horizontal center */
+  align-items: center;        /* Vertical center */
+  z-index: 2000;
+  padding: 15px;
+}
+
+
+#subscriptionModal .modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 100%;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+body.dark #subscriptionModal .modal-content {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+#subscriptionModal h3 {
+  margin-bottom: 15px;
+}
+
+#subscriptionModal input,
+#subscriptionModal select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+body.dark #subscriptionModal input,
+body.dark #subscriptionModal select {
+  background: #222;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+#subscriptionModal button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#subscriptionModal button[type="submit"] {
+  background: #ffd700;
+  color: #000;
+}
+
+#subscriptionModal button[type="submit"]:hover {
+  background: #ffcc00;
+}
+
+#subscriptionModal button[type="button"] {
+  background: #ccc;
+  color: #000;
+}
+
+#subscriptionModal button[type="button"]:hover {
+  background: #aaa;
+}
+
+/* ================== Animations ================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================== Registration Page Responsive Styles ================== */
+.register-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-width: 180px;
+}
+
+.register-form input[type="submit"],
+.register-form button,
+.register-form input[type="button"] {
+  min-width: 100px;
+  padding: 8px 16px;
+  font-weight: bold;
+  background: #ffd700;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.register-form input[type="submit"]:hover,
+.register-form button:hover {
+  background: #ffcc00;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .register-form {
+    flex-wrap: wrap;
+  }
+
+  .register-form input,
+  .register-form button {
+    min-width: 40%;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: nowrap;       /* keep items in one line */
+    flex-direction: column;     /* force row direction */
+    align-items: flex-start;
+    padding: 10px 15px;
+    overflow-x: auto;        /* allow scrolling if too many items */
+  }
+
+  .navbar nav {
+    flex-direction: column;     /* keep links in one line */
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar nav a,
+  .navbar nav button {
+    margin: 0 8px;          /* tighter spacing */
+    white-space: nowrap;    /* prevent text wrapping */
+  }
+  .hero-content {
+    padding: 15px;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  .register-form {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .register-form input,
+  .register-form button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .register-container h1 {
+    font-size: 1.7rem;
+  }
+
+  main,
+  .hero {
+    padding-top: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.2rem;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #subscriptionModal .modal-content {
+    width: 100%;
+  }
+
+  .register-container {
+    padding: 10px;
+  }
+
+  .register-form {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 0;
+    gap: 10px;
+  }
+
+  .register-form input,
+  .register-form button {
+    font-size: 1rem;
+    padding: 10px 8px;
+  }
+}
+
+
+/* Ensure body starts below header */
+body {
+  margin: 0;
+  padding-top: 60px;
+}
+
+@media (max-width: 768px) {
+  header.navbar {
+    flex-wrap: nowrap;         /* keep items in one row */
+    flex-direction: row;       /* always row */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    overflow-x: auto;          /* allow scroll if too many items */
+  }
+
+  header.navbar nav {
+    flex-direction: row;       /* keep links inline */
+    flex-wrap: nowrap;
+    width: auto;
+  }
+
+  header.navbar nav a,
+  header.navbar nav button {
+    margin: 0 6px;
+    white-space: nowrap;
+  }
+}
+
+
+/* ================ Footer ================ */
+footer {
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  background:  #8b2f2f;
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-top: auto;
+  z-index: 999;
+}
+
+body.light footer {
+  color: #111;
+}
+
+/* Style for "Get Started" button */
+.btn-login {
+  background-color: #c6846e;  /* button color */
+  color: #000;                /* text color */
+  padding: 10px 20px;          /* smaller padding */
+  font-size: 1rem;            /* smaller font size */
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}  
+/* Center button wrapper */
+.center-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full screen height */
+}
+
+
+.btn-login:hover {
+  background-color: #69ba84; /* darker gold on hover */
+  color: #101010;               /* optional: change text color on hover */
+}
+  /* Settings Section */
+.settings-section {
+  margin: 25px 0;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f5f5f5;
+}
+
+body.dark .settings-section {
+  background: #111;
+  color: #f5f5f5;
+}
+
+.settings-section h2 {
+  margin-bottom: 15px;
+}
+
+/* Profile Form Inputs */
+.settings-section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+body.dark .settings-section input {
+  background: #222;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+/* Buttons */
+.settings-section button {
+  padding: 10px 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #ffd700;
+  color: #000;
+  transition: background 0.3s;
+}
+
+.settings-section button:hover {
+  background: #ffcc00;
+}
+
+/* Email Reminder Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ffd700;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+ /* Profile Card */
+.profile-card {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  max-width: 500px;
+}
+
+body.dark .profile-card {
+  background: #111;
+  color: #f5f5f5;
+}
+
+.profile-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.profile-card p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* ===== Close Button (X) ===== */
+#subscriptionModal .close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #997373;
+  cursor: pointer;
+}
+body.dark #subscriptionModal .close {
+  color: #fff;
+}
+#subscriptionModal .close:hover {
+  color: red;
+}
+
+/* ===== Form Styling ===== */
+#subscriptionModal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#subscriptionModal label {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+#subscriptionModal select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+body.dark #subscriptionModal select {
+  background: #222;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+
+
+#subscriptionModal button[type="submit"],
+#submitBtn {
+  background: #ffd700;
+  color: #000;
+}
+
+#subscriptionModal button[type="submit"]:hover,
+#submitBtn:hover {
+  background: #ffcc00;
+}
+
+#subscriptionModal #cancelBtn {
+  background: #ccc;
+  color: #000;
+}
+
+#subscriptionModal #cancelBtn:hover {
+  background: #aaa;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.form-container {
+  position: relative;
+  background: var(--card-bg, #fff);
+  color: var(--text-color, #4f4e4e);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  z-index: 2;
+  text-align: center;
+}
+
+/* Heading */
+.form-container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Inputs */
+.form-container input {
+  width: 100%;
+  padding: 0.9rem;
+  margin: 0.6rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-container input:focus {
+  border-color: #2575fc;
+  outline: none;
+  box-shadow: 0 0 6px rgba(24, 101, 235, 0.5);
+}
+
+/* Button */
+.form-container button {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 1rem;
+  background: #2575fc;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-container button:hover {
+  background: #1a5dcc;
+}
+
+/* Links */
+.form-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.form-text a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-text a:hover {
+  text-decoration: underline;
+}
+
+/* Alert Message */
+.alert {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Dark Mode */
+body.dark .form-container {
+  background: #2a2a2a;
+  color: #eee;
+}
+
+body.dark .form-container input {
+  background: #444;
+  color: #fff;
+  border: 1px solid #666;
+}
+
+body.dark .form-container button {
+  background: #ff9800;
+}
+
+body.dark .form-text a {
+  color: #ff9800;
+}  
+canvas {
+  background: white;
+  margin: 20px 0;
+}
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .hero-content a.btn-login {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
+}
